@@ -50,8 +50,20 @@ cambiar_direccion = direccion
 #Puntaje Inicial 
 puntos = 0
 
+def puntaje_final(option, color, font, size):
+    puntaje_font = pygame.font.Sysfont(font, size)
+    puntaje_surfice =  puntaje_font.render('Puntaje: '+ str(puntos), True, color)
+    puntaje_rectan = puntaje_surfice.get_rect()
+
+    ventana.blit(puntaje_surfice, puntaje_rectan) 
+
+
 movimientos = -1
 aparecer_despues = -2 #El numero de movimientos después en los que aparecerá una nueva manzana
+
+
+#def Fin_juego():
+   #pass
 
 # Bucle principal : Esto donde se ejecuta el juego
 ejecutando = True
@@ -134,16 +146,24 @@ while ejecutando:
         
     # Crear el cuerpo de la manzana
     pygame.draw.rect(ventana, negro, pygame.Rect(fruta_posicion[0], fruta_posicion[1], 32, 32))
+    
 
     # Mostrar puntaje
-    #
+    puntaje_final(1, white, 'Serif', 20)
     #
     #
     #
 
+    #Condiciones de fin de juego
+    #if posicion_serp[0] < 0 or posicion_serp[0] > ventana -32:
+        #Fin_juego()
 
-    # Controlador de colision
-    
+    #if posicion_serp[1] < 0 or posicion_serp[1] > ventana -32:
+        #Fin_juego()
+
+    #for posicion in posicion_serp[1:]:
+        #if posicion_cuerpo[0] == posicion[0] and posicion_cuerpo[1] == posicion[1]:
+            #Fin_juego()
 
 
     # Dibujar la cuadrícula: 13x13
