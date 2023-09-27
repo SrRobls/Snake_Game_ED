@@ -61,13 +61,13 @@ while ejecutando:
 
         # Adicionalmente recibimos eventos de teclado
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP and direccion != "DOWN":
                 cambiar_direccion = "UP"
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN and direccion != "UP":
                 cambiar_direccion = "DOWN"
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT and direccion != "RIGHT":
                 cambiar_direccion = "LEFT"
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT and direccion != "LEFT":
                 cambiar_direccion = "RIGHT"
     
     # Actualizar la dirección directamente sin necesidad de comparaciones
@@ -75,17 +75,6 @@ while ejecutando:
 
     # Esto es muy importante: se hacen las verificaciones claramente si la serpiente va hacia arriba
     # No puede ir hacia ya que moririria, lo mismo pasa si se dirige a la izquierda y luego a la derecha, etc.
-
-    # PROBLEMON: esto no esta funcionando jajaja. no se cumplen la ideas de arriba. compruebenlo por uds mismos
-    if cambiar_direccion == "UP" and direccion == "DOWN":
-        direccion = "DOWN"
-    elif cambiar_direccion == "DOWN" and direccion == "UP":
-        direccion = "UP"
-    elif cambiar_direccion == "LEFT" and direccion == "RIGHT":
-        direccion = "RIGHT"
-    elif cambiar_direccion == "RIGHT" and direccion == "LEFT":
-        direccion = "LEFT"
-    
 
 
 
