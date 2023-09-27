@@ -51,7 +51,7 @@ cambiar_direccion = direccion
 puntos = 0
 
 def puntaje_final(option, color, font, size):
-    puntaje_font = pygame.font.Sysfont(font, size)
+    puntaje_font = pygame.font.SysFont(font, size)
     puntaje_surfice =  puntaje_font.render('Puntaje: '+ str(puntos), True, color)
     puntaje_rectan = puntaje_surfice.get_rect()
 
@@ -63,7 +63,7 @@ aparecer_despues = -2 #El numero de movimientos después en los que aparecerá u
 
 
 #def Fin_juego():
-   #pass
+   #apass
 
 # Bucle principal : Esto donde se ejecuta el juego
 ejecutando = True
@@ -149,7 +149,7 @@ while ejecutando:
     
 
     # Mostrar puntaje
-    puntaje_final(1, white, 'Serif', 20)
+    puntaje_final(1, negro, 'Serif', 20)
     #
     #
     #
@@ -163,7 +163,7 @@ while ejecutando:
 
     #for posicion in posicion_serp[1:]:
         #if posicion_cuerpo[0] == posicion[0] and posicion_cuerpo[1] == posicion[1]:
-            #Fin_juego()
+           # Fin_juego()
 
 
     # Dibujar la cuadrícula: 13x13
