@@ -100,13 +100,16 @@ while ejecutando:
         posiciones_cuerpo.pop()
 
     if not fruta_spawn:
-        fruta_posicion = [random.randrange(1, (ventana_tamano[0] // 32))*32,
-                        random.randrange(1, (ventana_tamano[1] // 32))*32]
+        while True:
+            fruta_posicion = [random.randrange(1, (ventana_tamano[0] // 32))*32, random.randrange(1, (ventana_tamano[1] // 32))*32]
+            if fruta_posicion not in posiciones_cuerpo:
+                break
+
 
     fruta_spawn = True
 
     # Contruimos los cuerpos en la pantalla
-    # Limpiar la pantalla
+    # fondo de la ventana
     ventana.fill(blanco)
 
     # Crear el cuerpo y cara de la serpienge
