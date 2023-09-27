@@ -36,6 +36,7 @@ posiciones_cuerpo = [[192, 224],
 vel_serp = 5
 
 fruta_posicion = [288, 96] # 9*32 para X, 3*32 para Y
+posicion = [0, 0] #Variable auxiliar para verificar que la fruta obtenga posiciones validas
 
 # fruta_posicion = [random.randrange(1, (ventana[0] // 32))*32,
 #                   random.randrange(1, (ventana[1] // 32))*32]
@@ -49,6 +50,8 @@ cambiar_direccion = direccion
 #Puntaje Inicial 
 puntos = 0
 
+movimientos = -1
+aparecer_despues = -2 #El numero de movimientos después en los que aparecerá una nueva manzana
 
 # Bucle principal : Esto donde se ejecuta el juego
 ejecutando = True
@@ -77,7 +80,6 @@ while ejecutando:
     # No puede ir hacia ya que moririria, lo mismo pasa si se dirige a la izquierda y luego a la derecha, etc.
 
 
-
     # Controlar el movimiento de la serpiente
     if direccion == "UP":
         posicion_serp[1] -= 32
@@ -95,18 +97,24 @@ while ejecutando:
 
     if posicion_serp[0] == fruta_posicion[0] and posicion_serp[1] == fruta_posicion[1]:
         puntos += 10
+        movimientos = 0
         fruta_spawn = False
     else:
         posiciones_cuerpo.pop()
 
-    if not fruta_spawn:
+    if not fruta_spawn: 
+        # "Escondemos" la fruta mientras el jugador realiza un numero aleatorio de movimientos hasta que esta vuelva a aparecer
+        fruta_posicion = [-32,-32]
+        aparecer_despues = random.randrange(1, 11)
+        fruta_spawn = True
+
+    if movimientos == aparecer_despues:
+        # Cuando ya el jugador realizo x numero de movimiento (dictado por el random) la fruta aparece en su nueva posicion
         while True:
-            fruta_posicion = [random.randrange(1, (ventana_tamano[0] // 32))*32, random.randrange(1, (ventana_tamano[1] // 32))*32]
-            if fruta_posicion not in posiciones_cuerpo:
+            posicion = [random.randrange(1, (ventana_tamano[0] // 32))*32, random.randrange(1, (ventana_tamano[1] // 32))*32]
+            if posicion not in posiciones_cuerpo and posicion not in posicion_serp:#Verificar que la fruta no aparezca sobre la serpiente
                 break
-
-
-    fruta_spawn = True
+        fruta_posicion = posicion 
 
     # Contruimos los cuerpos en la pantalla
     # fondo de la ventana
@@ -118,10 +126,12 @@ while ejecutando:
         if pos == 0:
             # Lo pintamos de gris ocuro
             pygame.draw.rect(ventana, gris_oscuro, pygame.Rect(posiciones_cuerpo[pos][0], posiciones_cuerpo[pos][1], 32, 32))
+            movimientos +=1
+            # print(movimientos)
             continue
         # pintamos el cuerpo de gris claro
         pygame.draw.rect(ventana, gris_clarito, pygame.Rect(posiciones_cuerpo[pos][0], posiciones_cuerpo[pos][1], 32, 32))
-
+        
     # Crear el cuerpo de la manzana
     pygame.draw.rect(ventana, negro, pygame.Rect(fruta_posicion[0], fruta_posicion[1], 32, 32))
 
