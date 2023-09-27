@@ -135,12 +135,15 @@ while ejecutando:
     # Crear el cuerpo de la manzana
     pygame.draw.rect(ventana, negro, pygame.Rect(fruta_posicion[0], fruta_posicion[1], 32, 32))
 
-
     # Mostrar puntaje
     #
     #
     #
     #
+
+
+    # Controlador de colision
+    
 
 
     # Dibujar la cuadrícula: 13x13
