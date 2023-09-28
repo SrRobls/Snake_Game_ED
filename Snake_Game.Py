@@ -62,18 +62,18 @@ movimientos = -1
 aparecer_despues = -2 #El numero de movimientos después en los que aparecerá una nueva manzana
 
 
-#def Fin_juego():
-   #puntaje_font = pygame.font.SysFont('Serif', 20)
-   #Fin_juego_surfice = puntaje_font.render("Tu puntaje fue de: " + str(puntos), True, negro)
-   #Fin_juego_rectan = Fin_juego_surfice.get_rect()
+def Fin_juego():
+   puntaje_font = pygame.font.SysFont('Serif', 20)
+   Fin_juego_surfice = puntaje_font.render("Tu puntaje fue de: " + str(puntos), True, negro)
+   Fin_juego_rectan = Fin_juego_surfice.get_rect()
 
-   #Fin_juego_rectan.midtop = ventana_tamano / 2
+   Fin_juego_rectan.midtop = ventana_tamano / 2
 
-   #ventana_tamano.blit(Fin_juego_surfice, Fin_juego_surfice)
+   ventana_tamano.blit(Fin_juego_surfice, Fin_juego_surfice)
 
-   #pygame.display.flip()
-   #time.sleep(3)
-   #pygame.quit()
+   pygame.display.flip()
+   time.sleep(3)
+   pygame.quit()
 
 # Bucle principal : Esto donde se ejecuta el juego
 ejecutando = True
@@ -166,10 +166,10 @@ while ejecutando:
         #Fin_juego()
 
     #if posicion_serp[1] < 0 or posicion_serp[1] > ventana_tamano[0]:
-        #Fin_juego()
+       # Fin_juego()
 
     #for pos in posicion_serp[1:]:
-        #if posiciones_cuerpo[0] == pos[0] and posiciones_cuerpo[1] == pos[1]:
+       # if posiciones_cuerpo[0] == pos[0] and posiciones_cuerpo[1] == pos[1]:
             #Fin_juego()
 
 
