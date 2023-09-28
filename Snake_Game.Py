@@ -50,6 +50,9 @@ cambiar_direccion = direccion
 #Puntaje Inicial 
 puntos = 0
 
+movimientos = -1
+aparecer_despues = -2 #El numero de movimientos después en los que aparecerá una nueva manzana
+
 def puntaje_final(option, color, font, size):
     puntaje_font = pygame.font.SysFont(font, size)
     puntaje_surfice =  puntaje_font.render('Puntaje: '+ str(puntos), True, color)
@@ -58,16 +61,13 @@ def puntaje_final(option, color, font, size):
     ventana.blit(puntaje_surfice, puntaje_rectan) 
 
 
-movimientos = -1
-aparecer_despues = -2 #El numero de movimientos después en los que aparecerá una nueva manzana
-
 
 def Fin_juego():
    puntaje_font = pygame.font.SysFont('Serif', 20)
    Fin_juego_surfice = puntaje_font.render("Tu puntaje fue de: " + str(puntos), True, negro)
    Fin_juego_rectan = Fin_juego_surfice.get_rect()
 
-   Fin_juego_rectan.midtop = ventana_tamano 
+   Fin_juego_rectan.midtop = ventana_tamano / 2
 
    ventana_tamano.blit(Fin_juego_surfice, Fin_juego_surfice)
 
