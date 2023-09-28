@@ -67,12 +67,12 @@ def Fin_juego():
    Fin_juego_surfice = puntaje_font.render("Tu puntaje fue de: " + str(puntos), True, negro)
    Fin_juego_rectan = Fin_juego_surfice.get_rect()
 
-   Fin_juego_rectan.midtop = ventana_tamano / 2
+   Fin_juego_rectan.midtop = ventana_tamano 
 
    ventana_tamano.blit(Fin_juego_surfice, Fin_juego_surfice)
 
    pygame.display.flip()
-   time.sleep(3)
+   time.sleep(5)
    pygame.quit()
 
 # Bucle principal : Esto donde se ejecuta el juego
@@ -162,15 +162,15 @@ while ejecutando:
     puntaje_final(1, negro, 'Serif', 20)
 
     #Condiciones de fin de juego
-    #if posicion_serp[0] < 0 or posicion_serp[0] > ventana_tamano[0]:
-        #Fin_juego()
+    if posicion_serp[0] < 0 or posicion_serp[0] > ventana_tamano[0]:
+        Fin_juego()
 
-    #if posicion_serp[1] < 0 or posicion_serp[1] > ventana_tamano[0]:
-       # Fin_juego()
+    if posicion_serp[1] < 0 or posicion_serp[1] > ventana_tamano[0]:
+        Fin_juego()
 
-    #for pos in posicion_serp[1:]:
-       # if posiciones_cuerpo[0] == pos[0] and posiciones_cuerpo[1] == pos[1]:
-            #Fin_juego()
+    for pos in posiciones_cuerpo[1:]:
+        if pos[0] == posiciones_cuerpo[0][0] and pos[1] == posiciones_cuerpo[0][1]:
+            Fin_juego()
 
 
     # Dibujar la cuadrícula: 13x13
