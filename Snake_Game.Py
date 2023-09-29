@@ -1,5 +1,12 @@
+#autores:
+#Anarragan
+#snoopbrain
+#SrRobls
+#Jhon_Cordoba
+#josemp05
+
 import random # Para la aparicion aleatoria de las manzanas
-import time # Aún no se xD
+import time 
 import pygame # Nuestro principal engine para el juego
 import sys
 
@@ -26,7 +33,7 @@ alto_celda = ventana_tamano[1] // filas
 
 FPS = pygame.time.Clock()
 # Definimos las posiciones
-posicion_serp = [192, 192] # Notemos que cada cuadro es 32 pixeles pues 416 / 12 = 32
+posicion_serp = [192, 192] # Notemos que cada cuadro es 32 pixeles pues 416 / 13 = 32
 #  entonces si lo queremos ubicar en el cuadro 6 en X y 6 en Y, es multiplicar 6*32 para cada coordenada
 posiciones_cuerpo = [[192, 224],
                      [192, 256],
