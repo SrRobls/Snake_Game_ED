@@ -67,9 +67,9 @@ def Fin_juego():
    Fin_juego_surfice = puntaje_font.render("Tu puntaje fue de: " + str(puntos), True, negro)
    Fin_juego_rectan = Fin_juego_surfice.get_rect()
 
-   Fin_juego_rectan.midtop = ventana_tamano / 2
+   Fin_juego_rectan.midtop = (ventana_tamano[0] // 2, ventana_tamano[1] // 2)  # Corregido aquí
 
-   ventana_tamano.blit(Fin_juego_surfice, Fin_juego_surfice)
+   ventana.blit(Fin_juego_surfice, Fin_juego_rectan)
 
    pygame.display.flip()
    time.sleep(5)
